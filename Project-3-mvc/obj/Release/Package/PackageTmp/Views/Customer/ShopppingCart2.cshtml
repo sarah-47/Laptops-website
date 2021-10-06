@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Project_3_mvc.ViewModel.OrdersViewModel>
+
+@{
+    ViewBag.Title = "ShopppingCart2";
+}
+
+<h2>ShopppingCart2</h2>
+
+<div>
+    <h4>OrdersViewModel</h4>
+    <hr />
+    @foreach(var item in Model) {
+    <dl class="dl-horizontal">
+       
+                <dt>
+                    <img src="@Url.Content(@item.ImgPath)" width="50" height="50" alt="Card image cap">
+                </dt>
+                <dt>@item.Name</dt>
+                <dt>@item.Quantity</dt>
+                <dt>@item.TotalCost</dt>
+                <dt>
+                    <input type="button" value="Delete" class="btn btn-danger" onclick="delet(@item.OrderID)" />
+                </dt>
+
+                <dt>
+                    
+                    @Html.ActionLink("Edit", "DeletProduct", new {  id = item.OrderID  })</dt>
+                <dt>@Html.ActionLink("Back to List", "Index")</dt>
+        </dl>
+                    }
+    </div>

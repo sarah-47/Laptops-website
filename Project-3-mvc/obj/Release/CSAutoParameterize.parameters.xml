@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="LaptopsEntities-Web.config Connection String" description="LaptopsEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.LaptopsDB.csdl|res://*/Models.LaptopsDB.ssdl|res://*/Models.LaptopsDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=Laptops;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Lenovo\\source\\repos\\Project-3-mvc\\Project-3-mvc\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LaptopsEntities']/@connectionString" />
+  </parameter>
+</parameters>

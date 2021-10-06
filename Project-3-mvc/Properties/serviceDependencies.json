@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:Server=SARAH;Database=Laptops;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}

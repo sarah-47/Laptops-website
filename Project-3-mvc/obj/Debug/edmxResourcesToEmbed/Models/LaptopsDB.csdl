@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LaptopsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Laptop">
+    <Key>
+      <PropertyRef Name="itemID" />
+    </Key>
+    <Property Name="itemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="ImgPath" Type="String" MaxLength="550" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="LaptopsModel.FK_Order_Laptops" FromRole="Laptop" ToRole="Order" />
+  </EntityType>
+  <EntityContainer Name="LaptopsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Laptops" EntityType="Self.Laptop" />
+    <EntitySet Name="Orders" EntityType="LaptopsModel.Order" />
+    <AssociationSet Name="FK_Order_Laptops" Association="LaptopsModel.FK_Order_Laptops">
+      <End Role="Laptop" EntitySet="Laptops" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TotalCost" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="itemID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Laptop" Relationship="LaptopsModel.FK_Order_Laptops" FromRole="Order" ToRole="Laptop" />
+  </EntityType>
+  <Association Name="FK_Order_Laptops">
+    <End Type="LaptopsModel.Laptop" Role="Laptop" Multiplicity="1" />
+    <End Type="LaptopsModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laptop">
+        <PropertyRef Name="itemID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="itemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

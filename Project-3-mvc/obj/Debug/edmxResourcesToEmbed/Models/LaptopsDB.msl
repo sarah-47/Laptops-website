@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LaptopsModelStoreContainer" CdmEntityContainer="LaptopsEntities">
+    <EntitySetMapping Name="Laptops">
+      <EntityTypeMapping TypeName="LaptopsModel.Laptop">
+        <MappingFragment StoreEntitySet="Laptops">
+          <ScalarProperty Name="itemID" ColumnName="itemID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ImgPath" ColumnName="ImgPath" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="LaptopsModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="itemID" ColumnName="itemID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

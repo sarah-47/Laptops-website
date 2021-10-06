@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Project_3_mvc.ViewModel.OrdersViewModel>
+
+@{
+    ViewBag.Title = "ConfirmOrder";
+    decimal TotalAmount = 0;
+}
+<div class="row">
+    <form>
+        <div class="col-lg-4">
+            <br />
+            <div class="jumbotron" style="width:800px;">
+                <h2 style="color:forestgreen">Your request sent successfully !</h2>
+                <hr>
+
+
+                <h3>Your Order</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Cost</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@Url.Content(@item.ImgPath)" width="50" height="50" alt="Card image cap">
+                                </td>
+                                <td>@item.Name</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.TotalCost</td>
+
+
+
+                            </tr>
+                            TotalAmount += item.TotalCost;
+                        }
+                        <tr>
+                            <td style="text-align: right">
+                                <h3>Total Amount</h3>
+                            </td>
+                            <td style="text-align: right">
+                                <h3>@TotalAmount.ToString("#,##0.00 $")</h3>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </form>
+</div>
